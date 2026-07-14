@@ -388,8 +388,9 @@ export default function Home() {
               {site.city}&apos;un her yerinde yanındayız
             </h2>
             <p className="mt-4 text-lg text-muted">
-              {site.city} ilçelerinin tamamına şehir içi kurye hizmeti
-              sunuyoruz. Bölgen listede yoksa bile bir çağrı uzağındayız.
+              {site.city}&apos;un Adalar hariç tüm ilçelerine kurye
+              gönderiyoruz. Ayrıca Gebze&apos;den Çorlu&apos;ya, Yalova&apos;dan
+              Sakarya&apos;ya çevre bölgeler de kapsamda.
             </p>
           </Reveal>
 
@@ -412,6 +413,38 @@ export default function Home() {
               Tüm bölgeler
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
+          </Reveal>
+
+          {/* İstanbul dışı kapsam */}
+          <Reveal className="mt-10 grid gap-5 sm:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-background p-5">
+              <p className="text-sm font-semibold">Çevre ilçeler</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {site.nearbyDistricts.map((d) => (
+                  <span
+                    key={d}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-sm text-muted"
+                  >
+                    <MapPinIcon className="h-3.5 w-3.5" />
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-background p-5">
+              <p className="text-sm font-semibold">Çevre iller</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {site.provinces.map((p) => (
+                  <span
+                    key={p}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-sm text-muted"
+                  >
+                    <MapPinIcon className="h-3.5 w-3.5" />
+                    {p}
+                  </span>
+                ))}
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

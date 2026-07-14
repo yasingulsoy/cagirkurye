@@ -17,7 +17,7 @@ export const faqs: Faq[] = [
   {
     question: "Hangi şehir ve bölgelerde hizmet veriyorsunuz?",
     answer:
-      "İstanbul'un tüm ilçelerinde şehir içi kurye hizmeti sunuyoruz. Bölgenizin kapsamda olup olmadığını çağrı oluştururken anında öğrenebilirsiniz.",
+      "İstanbul'un Adalar hariç tüm ilçelerinde hizmet veriyoruz. Ayrıca Gebze, Dilovası, Çayırova, Yalova, Çorlu ve Çerkezköy başta olmak üzere Kocaeli, Tekirdağ, Bursa, Sakarya ve Edirne'ye de kurye gönderiyoruz. Bölgenizin kapsamda olup olmadığını çağrı oluştururken anında öğrenebilirsiniz.",
   },
   {
     question: "Gönderimi nasıl takip ederim?",

@@ -80,9 +80,11 @@ export default function HakkimizdaPage() {
               karşılaşmamanı sağlarız.
             </p>
             <p>
-              {site.city}&apos;un tüm ilçelerinde 7 gün 24 saat hizmet
-              veriyoruz. Bireysel gönderilerin yanı sıra düzenli sevkiyatı olan
-              işletmelere özel{" "}
+              {site.city}&apos;un Adalar hariç tüm ilçelerinde 7 gün 24 saat
+              hizmet veriyoruz. Ayrıca {site.nearbyDistricts.join(", ")} gibi
+              çevre ilçelere ve {site.provinces.join(", ")} illerine de kurye
+              gönderiyoruz. Bireysel gönderilerin yanı sıra düzenli sevkiyatı
+              olan işletmelere özel{" "}
               <Link
                 href="/hizmetler/kurumsal-kurye"
                 className="font-medium text-foreground underline underline-offset-4"
@@ -100,7 +102,7 @@ export default function HakkimizdaPage() {
               <div>
                 <dt className="text-sm text-muted">Hizmet alanı</dt>
                 <dd className="text-base font-semibold">
-                  {site.city} (tüm ilçeler)
+                  {site.city} ({site.istanbulNote}) + çevre iller
                 </dd>
               </div>
               <div>

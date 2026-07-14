@@ -104,8 +104,10 @@ export default function IletisimPage() {
             <MapPinIcon className="mt-0.5 h-6 w-6 flex-none" />
             <div>
               <p className="font-semibold">Hizmet bölgeleri</p>
-              <p className="mt-1 text-sm text-muted">
-                {site.city} ve tüm ilçeleri.
+              <p className="mt-1 text-sm leading-6 text-muted">
+                {site.city} ({site.istanbulNote}) ·{" "}
+                {site.nearbyDistricts.join(", ")} ·{" "}
+                {site.provinces.join(", ")}
               </p>
             </div>
           </div>

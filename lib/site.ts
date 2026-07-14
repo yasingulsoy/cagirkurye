@@ -19,8 +19,35 @@ export const site = {
 
   // Konum / hizmet alanı
   city: "İstanbul",
-  // Şu an yalnızca İstanbul (tüm ilçeler). Yeni şehir eklenince buraya ekle.
-  areaServed: ["İstanbul"],
+  // ---- HİZMET ALANI (tek kaynak) ----
+  // İstanbul: Adalar hariç tüm ilçeler
+  istanbulNote: "Adalar hariç tüm ilçeler",
+  // Çevre ilçeler / hizmet noktaları
+  nearbyDistricts: [
+    "Gebze",
+    "Dilovası",
+    "Çayırova",
+    "Yalova",
+    "Çorlu",
+    "Çerkezköy",
+  ],
+  // Çevre iller
+  provinces: ["Kocaeli", "Tekirdağ", "Bursa", "Sakarya", "Edirne"],
+  // LocalBusiness schema (areaServed) için düz liste — yukarıdakilerin toplamı
+  areaServed: [
+    "İstanbul",
+    "Kocaeli",
+    "Tekirdağ",
+    "Bursa",
+    "Sakarya",
+    "Edirne",
+    "Gebze",
+    "Dilovası",
+    "Çayırova",
+    "Yalova",
+    "Çorlu",
+    "Çerkezköy",
+  ],
   address: {
     streetAddress: "Merkez Mah.",
     addressLocality: "İstanbul",
