@@ -89,14 +89,15 @@ export const viewport: Viewport = {
 const themeInitScript = `
 (function(){
   try {
-    var t = localStorage.getItem('theme');
-    var m = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (t === 'dark' || (!t && m)) {
-      document.documentElement.classList.add('dark');
-    } else {
+    // Varsayılan KOYU tema; yalnızca kullanıcı açık temayı seçtiyse açık olur.
+    if (localStorage.getItem('theme') === 'light') {
       document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
     }
-  } catch (e) {}
+  } catch (e) {
+    document.documentElement.classList.add('dark');
+  }
 })();
 `;
 
