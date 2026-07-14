@@ -23,6 +23,23 @@ import { IlloDelivered, IlloOrder, IlloRide } from "./components/illustrations";
 
 const container = "mx-auto max-w-6xl px-4 sm:px-6";
 
+// Ana sayfada gösterilen öne çıkan bölgeler (tamamı /bolgeler'de)
+const oneCikanBolgeler = [
+  "kadikoy",
+  "besiktas",
+  "sisli",
+  "bakirkoy",
+  "uskudar",
+  "atasehir",
+  "maltepe",
+  "beyoglu",
+  "fatih",
+  "basaksehir",
+  "umraniye",
+  "pendik",
+  "gebze",
+];
+
 const nedenBiz = [
   {
     icon: BoltIcon,
@@ -395,22 +412,25 @@ export default function Home() {
           </Reveal>
 
           <Reveal className="mt-10 flex flex-wrap gap-2.5">
-            {regions.map((r) => (
-              <Link
-                key={r.slug}
-                href={`/bolgeler/${r.slug}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:border-foreground"
-              >
-                <MapPinIcon className="h-4 w-4 text-muted" />
-                {r.name}
-              </Link>
-            ))}
+            {oneCikanBolgeler
+              .map((s) => regions.find((r) => r.slug === s))
+              .filter((r): r is NonNullable<typeof r> => Boolean(r))
+              .map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/bolgeler/${r.slug}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:border-foreground"
+                >
+                  <MapPinIcon className="h-4 w-4 text-muted" />
+                  {r.name}
+                </Link>
+              ))}
             <Link
               key="tum-bolgeler"
               href="/bolgeler"
               className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-fg transition-opacity hover:opacity-90"
             >
-              Tüm bölgeler
+              Tüm bölgeler ({regions.length})
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </Reveal>
