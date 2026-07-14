@@ -105,7 +105,7 @@ export default function IletisimPage() {
             <div>
               <p className="font-semibold">Hizmet bölgeleri</p>
               <p className="mt-1 text-sm text-muted">
-                {site.areaServed.join(", ")} ve çevresi.
+                {site.city} ve tüm ilçeleri.
               </p>
             </div>
           </div>

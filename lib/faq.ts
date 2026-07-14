@@ -17,7 +17,7 @@ export const faqs: Faq[] = [
   {
     question: "Hangi şehir ve bölgelerde hizmet veriyorsunuz?",
     answer:
-      "Başta İstanbul olmak üzere Ankara, İzmir, Bursa ve çevre illerde şehir içi kurye hizmeti sunuyoruz. Bölgenizin kapsamda olup olmadığını çağrı oluştururken anında öğrenebilirsiniz.",
+      "İstanbul'un tüm ilçelerinde şehir içi kurye hizmeti sunuyoruz. Bölgenizin kapsamda olup olmadığını çağrı oluştururken anında öğrenebilirsiniz.",
   },
   {
     question: "Gönderimi nasıl takip ederim?",
@@ -38,10 +38,5 @@ export const faqs: Faq[] = [
     question: "Hangi tür gönderileri taşıyorsunuz?",
     answer:
       "Evrak, zarf, paket, koli, yemek, ilaç, yedek parça ve e-ticaret siparişleri dahil şehir içi taşınabilir birçok gönderiyi taşıyoruz. Yasal olmayan ve tehlikeli maddeler taşınmaz.",
-  },
-  {
-    question: "Ödemeyi nasıl yapabilirim?",
-    answer:
-      "Kredi/banka kartı, havale/EFT ve kurumsal müşteriler için faturalı ödeme seçenekleri mevcuttur. Ödeme yönteminizi çağrı oluştururken seçebilirsiniz.",
   },
 ];

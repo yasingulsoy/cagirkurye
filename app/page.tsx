@@ -388,8 +388,8 @@ export default function Home() {
               {site.city}&apos;un her yerinde yanındayız
             </h2>
             <p className="mt-4 text-lg text-muted">
-              {site.city} ilçelerinin tamamına ve çevre illere şehir içi kurye
-              hizmeti sunuyoruz. Bölgen listede yoksa bile bir çağrı uzağındayız.
+              {site.city} ilçelerinin tamamına şehir içi kurye hizmeti
+              sunuyoruz. Bölgen listede yoksa bile bir çağrı uzağındayız.
             </p>
           </Reveal>
 
@@ -413,15 +413,6 @@ export default function Home() {
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </Reveal>
-
-          <div className="mt-8">
-            <p className="text-sm text-muted">
-              Ayrıca hizmet verdiğimiz iller:{" "}
-              <span className="font-medium text-foreground">
-                {site.areaServed.filter((c) => c !== site.city).join(", ")}
-              </span>
-            </p>
-          </div>
         </div>
       </section>
 

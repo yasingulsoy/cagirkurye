@@ -24,9 +24,7 @@ export function GET() {
     "",
     `> ${site.description}`,
     "",
-    `${site.name}, ${site.city} başta olmak üzere ${site.areaServed
-      .filter((c) => c !== site.city)
-      .join(", ")} illerinde 7/24 talep üzerine (on-demand) şehir içi kurye hizmeti verir. Ana hizmetler: moto kurye, acil kurye, aynı gün teslimat, paket & koli kurye, kurumsal kurye ve e-ticaret teslimat.`,
+    `${site.name}, ${site.city}'un tüm ilçelerinde 7/24 talep üzerine (on-demand) şehir içi kurye hizmeti verir. Ana hizmetler: moto kurye, acil kurye, aynı gün teslimat, paket & koli kurye, kurumsal kurye ve e-ticaret teslimat.`,
     "",
     "## Hizmetler",
     ...services.map((s) => `- [${s.title}](${abs(`/hizmetler/${s.slug}`)}): ${s.short}`),
@@ -49,7 +47,7 @@ export function GET() {
     `- Telefon: ${site.phoneDisplay}`,
     `- WhatsApp: https://wa.me/${site.whatsapp}`,
     `- E-posta: ${site.email}`,
-    `- Hizmet bölgeleri: ${site.areaServed.join(", ")}`,
+    `- Hizmet bölgeleri: ${site.city} (tüm ilçeler)`,
     `- Çalışma saatleri: 7 gün 24 saat`,
     "",
     "## Notlar",

@@ -19,7 +19,8 @@ export const site = {
 
   // Konum / hizmet alanı
   city: "İstanbul",
-  areaServed: ["İstanbul", "Ankara", "İzmir", "Bursa", "Kocaeli", "Antalya"],
+  // Şu an yalnızca İstanbul (tüm ilçeler). Yeni şehir eklenince buraya ekle.
+  areaServed: ["İstanbul"],
   address: {
     streetAddress: "Merkez Mah.",
     addressLocality: "İstanbul",

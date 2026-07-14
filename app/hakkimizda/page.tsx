@@ -80,10 +80,9 @@ export default function HakkimizdaPage() {
               karşılaşmamanı sağlarız.
             </p>
             <p>
-              Başta {site.city} olmak üzere{" "}
-              {site.areaServed.filter((c) => c !== site.city).join(", ")} gibi
-              illerde 7 gün 24 saat hizmet veriyoruz. Bireysel gönderilerin yanı
-              sıra düzenli sevkiyatı olan işletmelere özel{" "}
+              {site.city}&apos;un tüm ilçelerinde 7 gün 24 saat hizmet
+              veriyoruz. Bireysel gönderilerin yanı sıra düzenli sevkiyatı olan
+              işletmelere özel{" "}
               <Link
                 href="/hizmetler/kurumsal-kurye"
                 className="font-medium text-foreground underline underline-offset-4"
@@ -101,7 +100,7 @@ export default function HakkimizdaPage() {
               <div>
                 <dt className="text-sm text-muted">Hizmet alanı</dt>
                 <dd className="text-base font-semibold">
-                  {site.city} ve çevre iller
+                  {site.city} (tüm ilçeler)
                 </dd>
               </div>
               <div>
