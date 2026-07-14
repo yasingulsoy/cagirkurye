@@ -11,7 +11,8 @@ import {
 } from "framer-motion";
 import { navLinks, site, telHref } from "@/lib/site";
 import { ThemeToggle } from "./ThemeToggle";
-import { MotoIcon, PhoneIcon } from "./icons";
+import { BrandLogo } from "./BrandLogo";
+import { PhoneIcon } from "./icons";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -83,24 +84,15 @@ export function Header() {
         }}
         transition={{ duration: 0.35, ease: easeOut }}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
           {/* Logo */}
           <motion.div
             whileHover={reduce ? undefined : { scale: 1.02 }}
             whileTap={reduce ? undefined : { scale: 0.97 }}
             transition={{ type: "spring", stiffness: 420, damping: 26 }}
           >
-            <Link
-              href="/"
-              className="flex items-center gap-2.5"
-              aria-label={site.name}
-            >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-fg">
-                <MotoIcon className="h-5 w-5" />
-              </span>
-              <span className="text-lg font-bold tracking-tight">
-                {site.name}
-              </span>
+            <Link href="/" className="flex items-center" aria-label={site.name}>
+              <BrandLogo imgClass="h-12 sm:h-14" />
             </Link>
           </motion.div>
 

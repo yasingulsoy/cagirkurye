@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { mailHref, navLinks, site, telHref, waHref } from "@/lib/site";
 import { services } from "@/lib/services";
-import { MotoIcon, PhoneIcon, WhatsappIcon } from "./icons";
+import { BrandLogo } from "./BrandLogo";
+import { PhoneIcon, WhatsappIcon } from "./icons";
 
 export function Footer() {
   const year = 2026;
@@ -12,13 +13,8 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Marka */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-fg">
-                <MotoIcon className="h-5 w-5" />
-              </span>
-              <span className="text-lg font-bold tracking-tight">
-                {site.name}
-              </span>
+            <Link href="/" className="inline-flex items-center">
+              <BrandLogo imgClass="h-16" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-6 text-muted">
               {site.slogan} Aynı gün moto kurye, acil kurye ve paket teslimatta{" "}

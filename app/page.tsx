@@ -80,7 +80,7 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden border-b border-border">
         <div
-          className={`${container} grid items-center gap-12 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:grid-cols-2 lg:pt-10 lg:pb-28`}
+          className={`${container} grid items-start gap-12 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:grid-cols-2 lg:pt-10 lg:pb-28`}
         >
           <Reveal>
             <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">

@@ -7,16 +7,16 @@ export type PackageSize = "zarf" | "paket" | "koli";
 
 export const pricing = {
   currency: "₺",
-  base: 99, // taban ücret
-  perKm: 14, // km başına ek ücret
-  minimum: 149, // en düşük ücret
+  base: 149, // taban ücret
+  perKm: 19, // km başına ek ücret
+  minimum: 199, // en düşük ücret
   service: { standart: 1, "ayni-gun": 1.2, acil: 1.6 } as Record<
     ServiceType,
     number
   >,
-  size: { zarf: 0, paket: 40, koli: 90 } as Record<PackageSize, number>,
-  insuranceRate: 0.08, // sigorta: +%8
-  nightWeekendRate: 0.2, // gece / hafta sonu: +%20
+  size: { zarf: 0, paket: 55, koli: 120 } as Record<PackageSize, number>,
+  insuranceRate: 0.1, // sigorta: +%10
+  nightWeekendRate: 0.25, // gece / hafta sonu: +%25
   maxKm: 40,
 };
 
