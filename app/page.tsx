@@ -8,7 +8,6 @@ import { Reveal, StaggerGroup, StaggerItem } from "./components/Reveal";
 import {
   ArrowRightIcon,
   BoltIcon,
-  CheckIcon,
   ClockIcon,
   HeadsetIcon,
   MapPinIcon,
@@ -20,6 +19,7 @@ import {
   WalletIcon,
   WhatsappIcon,
 } from "./components/icons";
+import { IlloDelivered, IlloOrder, IlloRide } from "./components/illustrations";
 
 const container = "mx-auto max-w-6xl px-4 sm:px-6";
 
@@ -58,19 +58,19 @@ const nedenBiz = [
 
 const adimlar = [
   {
-    no: "01",
     title: "Çağrını oluştur",
     text: "Telefon ya da WhatsApp ile bize ulaş, alım ve teslim adresini ilet. Fiyatı anında öğren.",
+    Illo: IlloOrder,
   },
   {
-    no: "02",
     title: "Kurye kapına gelsin",
     text: "En yakın moto kurye dakikalar içinde adresine gelir ve gönderini teslim alır.",
+    Illo: IlloRide,
   },
   {
-    no: "03",
     title: "Teslimatı takip et",
     text: "Gönderini canlı izle; teslimat tamamlandığında onay bildirimini anında al.",
+    Illo: IlloDelivered,
   },
 ];
 
@@ -79,16 +79,23 @@ export default function Home() {
     <>
       {/* ================= HERO ================= */}
       <section className="relative overflow-hidden border-b border-border">
+        {/* Dekor: nokta ızgarası + yumuşak parıltı */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="hero-dots absolute inset-0 opacity-70" />
+          <div className="absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-foreground/[0.04] blur-3xl" />
+        </div>
+
         <div
-          className={`${container} grid items-start gap-12 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:grid-cols-2 lg:pt-10 lg:pb-28`}
+          className={`${container} relative grid items-start gap-12 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pt-10 lg:pb-24`}
         >
           <Reveal>
-            <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+            {/* Akışkan tipografi: 360px'te ~40px, geniş ekranda 68px'e kadar */}
+            <h1 className="text-[clamp(2.5rem,7.2vw,4.25rem)] font-extrabold leading-[1.06] tracking-tight">
               Aynı gün moto kurye ve acil teslimat —{" "}
               <span className="text-muted">bir çağrıda kapında.</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
+            <p className="mt-5 max-w-xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
               {site.name} ile {site.city} içinde evrak, paket ve kolilerini
               dakikalar içinde gönder. Hızlı, güvenli ve uygun fiyatlı şehir içi
               kurye çözümü — istediğin an, istediğin yere.
@@ -97,7 +104,7 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href={telHref}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-accent-fg transition-opacity hover:opacity-90"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-accent-fg transition-opacity hover:opacity-90 sm:w-auto"
               >
                 <PhoneIcon className="h-5 w-5" />
                 Hemen Kurye Çağır
@@ -106,7 +113,7 @@ export default function Home() {
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-7 py-3.5 text-base font-semibold text-foreground transition-colors hover:bg-subtle"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border px-7 py-3.5 text-base font-semibold text-foreground transition-colors hover:bg-subtle sm:w-auto"
               >
                 <WhatsappIcon className="h-5 w-5" />
                 WhatsApp&apos;tan Yaz
@@ -121,68 +128,103 @@ export default function Home() {
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            {/* Güven çubuğu */}
-            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+            {/* Güven rozetleri — mobilde 2'li ızgara, geniş ekranda satır */}
+            <ul className="mt-9 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
               {[
-                "Canlı takip",
-                "Sigortalı gönderi",
-                "Şeffaf fiyat",
-                "Dakikalar içinde",
+                { icon: RouteIcon, label: "Canlı takip" },
+                { icon: ShieldIcon, label: "Sigortalı gönderi" },
+                { icon: WalletIcon, label: "Şeffaf fiyat" },
+                { icon: BoltIcon, label: "Dakikalar içinde" },
               ].map((t) => (
-                <li key={t} className="inline-flex items-center gap-1.5">
-                  <CheckIcon className="h-4 w-4" />
-                  {t}
+                <li key={t.label}>
+                  <span className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-border bg-card px-3 py-2 text-xs font-medium text-muted sm:w-auto sm:text-sm">
+                    <t.icon className="h-4 w-4 flex-none" />
+                    {t.label}
+                  </span>
                 </li>
               ))}
             </ul>
           </Reveal>
 
           {/* Canlı takip kartı (görsel) */}
-          <Reveal className="relative lg:justify-self-end" delay={0.15}>
-            <div className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <Reveal
+            className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
+            delay={0.15}
+          >
+            {/* Arka plaka — hafif dönük, derinlik verir */}
+            <div
+              aria-hidden
+              className="absolute -inset-3 rotate-2 rounded-[2rem] border border-border bg-subtle sm:-inset-4"
+            />
+
+            <div className="relative rounded-3xl border border-border bg-card p-5 shadow-[0_32px_80px_-36px_rgba(0,0,0,0.45)] sm:p-7">
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center gap-2 text-sm font-semibold">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold sm:text-base">
                   <span className="relative flex h-2.5 w-2.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-60" />
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-foreground" />
                   </span>
                   Kurye yolda
                 </span>
-                <span className="rounded-full bg-subtle px-3 py-1 text-xs font-semibold">
+                <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-fg">
                   ~18 dk
                 </span>
               </div>
 
-              {/* Rota */}
+              {/* Rota — kesikli çizgi teslim yönünde akar */}
               <div className="mt-6 flex gap-4">
                 <div className="flex flex-col items-center pt-1">
-                  <span className="h-3 w-3 rounded-full border-2 border-foreground" />
-                  <span className="my-1 h-16 w-0.5 border-l-2 border-dashed border-border" />
+                  <span className="h-3 w-3 rounded-full border-2 border-foreground bg-background" />
+                  <svg
+                    aria-hidden
+                    width="2"
+                    height="64"
+                    viewBox="0 0 2 64"
+                    fill="none"
+                    className="my-1"
+                  >
+                    <line
+                      x1="1"
+                      y1="0"
+                      x2="1"
+                      y2="64"
+                      stroke="var(--border)"
+                      strokeWidth="2"
+                      strokeDasharray="4 6"
+                      className="route-dash"
+                    />
+                  </svg>
                   <span className="h-3 w-3 rounded-full bg-foreground" />
                 </div>
-                <div className="flex flex-1 flex-col justify-between">
+                <div className="flex flex-1 flex-col justify-between py-0.5">
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-muted">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
                       Alım
                     </p>
-                    <p className="text-sm font-medium">Levent, Beşiktaş</p>
+                    <p className="mt-0.5 text-sm font-semibold sm:text-base">
+                      Levent, Beşiktaş
+                    </p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-muted">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
                       Teslim
                     </p>
-                    <p className="text-sm font-medium">Kozyatağı, Kadıköy</p>
+                    <p className="mt-0.5 text-sm font-semibold sm:text-base">
+                      Kozyatağı, Kadıköy
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Kurye */}
               <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-fg">
-                  MK
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-fg sm:h-11 sm:w-11">
+                  ÇG
                 </span>
                 <div className="flex-1">
-                  <p className="text-sm font-semibold">Moto Kurye</p>
+                  <p className="text-sm font-semibold sm:text-base">
+                    Çağır Group
+                  </p>
                   <p className="inline-flex items-center gap-1 text-xs text-muted">
                     <StarIcon className="h-3.5 w-3.5" />
                     4.9 · 1.2k teslimat
@@ -191,10 +233,24 @@ export default function Home() {
                 <a
                   href={telHref}
                   aria-label="Kuryeyi ara"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:bg-subtle"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:bg-subtle sm:h-11 sm:w-11"
                 >
                   <PhoneIcon className="h-4 w-4" />
                 </a>
+              </div>
+            </div>
+
+            {/* Yüzen rozet — yalnızca geniş ekranda */}
+            <div className="animate-float absolute -right-6 top-[42%] hidden lg:block">
+              <div className="flex items-center gap-2.5 rounded-2xl border border-border bg-background px-3.5 py-2.5 shadow-xl">
+                <span className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-accent text-accent-fg">
+                  <ClockIcon className="h-4.5 w-4.5" />
+                </span>
+                <span className="text-xs font-semibold leading-tight">
+                  7/24
+                  <br />
+                  hizmet
+                </span>
               </div>
             </div>
           </Reveal>
@@ -270,14 +326,21 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <StaggerGroup className="mt-12 grid gap-8 md:grid-cols-3">
-            {adimlar.map((a) => (
-              <StaggerItem key={a.no} className="relative">
-                <span className="text-5xl font-extrabold tracking-tight text-border">
-                  {a.no}
-                </span>
-                <h3 className="mt-3 text-xl font-semibold">{a.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted">{a.text}</p>
+          <StaggerGroup className="mt-12 grid gap-6 md:grid-cols-3">
+            {adimlar.map((a, i) => (
+              <StaggerItem key={a.title} className="h-full">
+                <div className="flex h-full flex-col rounded-3xl border border-border bg-card p-4">
+                  <a.Illo />
+                  <div className="px-2 pb-2 pt-5">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-fg">
+                        {i + 1}
+                      </span>
+                      <h3 className="text-lg font-semibold">{a.title}</h3>
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-muted">{a.text}</p>
+                  </div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerGroup>

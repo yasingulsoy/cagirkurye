@@ -12,7 +12,7 @@ import {
   type ServiceType,
 } from "@/lib/pricing";
 import { site, telHref } from "@/lib/site";
-import { MoonIcon, PhoneIcon, ShieldIcon, WhatsappIcon } from "./icons";
+import { MoonIcon, PhoneIcon, WhatsappIcon } from "./icons";
 
 // Hedef değere yumuşak sayan sayaç (reduced-motion'da anında)
 function useCountUp(target: number, enabled: boolean, duration = 450) {
@@ -62,10 +62,9 @@ export function FiyatHesaplama() {
   const [service, setService] = useState<ServiceType>("standart");
   const [km, setKm] = useState(8);
   const [size, setSize] = useState<PackageSize>("zarf");
-  const [insurance, setInsurance] = useState(false);
   const [nightWeekend, setNightWeekend] = useState(false);
 
-  const total = calcPrice({ km, service, size, insurance, nightWeekend });
+  const total = calcPrice({ km, service, size, nightWeekend });
   const shown = useCountUp(total, !reduce);
 
   const serviceLabel = serviceOptions.find((s) => s.value === service)?.label;
@@ -178,13 +177,6 @@ export function FiyatHesaplama() {
           <p className="text-sm font-semibold">Ekstralar</p>
           <div className="mt-3 space-y-2.5">
             <ExtraToggle
-              icon={<ShieldIcon className="h-5 w-5" />}
-              title="Sigortalı taşıma"
-              note={`+%${Math.round(pricing.insuranceRate * 100)} · değerli gönderiler için`}
-              checked={insurance}
-              onChange={() => setInsurance((v) => !v)}
-            />
-            <ExtraToggle
               icon={<MoonIcon className="h-5 w-5" />}
               title="Gece / hafta sonu"
               note={`+%${Math.round(pricing.nightWeekendRate * 100)} · 22:00 sonrası ve tatiller`}
@@ -219,14 +211,10 @@ export function FiyatHesaplama() {
               <span>Gönderi</span>
               <span className="font-medium">{sizeLabel}</span>
             </li>
-            {(insurance || nightWeekend) && (
+            {nightWeekend && (
               <li className="flex justify-between gap-4">
                 <span>Ekstra</span>
-                <span className="font-medium">
-                  {[insurance && "Sigorta", nightWeekend && "Gece/HS"]
-                    .filter(Boolean)
-                    .join(", ")}
-                </span>
+                <span className="font-medium">Gece / hafta sonu</span>
               </li>
             )}
           </ul>

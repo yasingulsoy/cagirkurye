@@ -15,7 +15,6 @@ export const pricing = {
     number
   >,
   size: { zarf: 0, paket: 55, koli: 120 } as Record<PackageSize, number>,
-  insuranceRate: 0.1, // sigorta: +%10
   nightWeekendRate: 0.25, // gece / hafta sonu: +%25
   maxKm: 40,
 };
@@ -24,7 +23,6 @@ export type CalcInput = {
   km: number;
   service: ServiceType;
   size: PackageSize;
-  insurance: boolean;
   nightWeekend: boolean;
 };
 
@@ -33,7 +31,6 @@ export function calcPrice(i: CalcInput): number {
   let p =
     (pricing.base + pricing.perKm * i.km) * pricing.service[i.service] +
     pricing.size[i.size];
-  if (i.insurance) p *= 1 + pricing.insuranceRate;
   if (i.nightWeekend) p *= 1 + pricing.nightWeekendRate;
   p = Math.max(p, pricing.minimum);
   return Math.round(p / 5) * 5;

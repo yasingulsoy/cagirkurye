@@ -64,6 +64,59 @@ body {
   outline-offset: 2px;
 }
 
+/* ===== Hero dekor & animasyonları ===== */
+
+/* Nokta ızgarası — her iki temada --border üzerinden görünür, kenarlara doğru erir */
+.hero-dots {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    var(--border) 1.2px,
+    transparent 1.6px
+  );
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 70% 28%,
+    black 30%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 70% 28%,
+    black 30%,
+    transparent 75%
+  );
+}
+
+/* Yüzen rozetler */
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: hero-float 5.5s ease-in-out infinite;
+}
+
+/* Takip kartındaki rota çizgisi — kesikli çizgi alım→teslim yönünde akar */
+@keyframes route-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.route-dash {
+  animation: route-dash 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .route-dash {
+    animation: none;
+  }
+}
+
 /* Blog / uzun içerik tipografisi (eklenti gerektirmez) */
 .prose {
   color: var(--foreground);

@@ -38,8 +38,8 @@ const faktorler = [
     text: "Zarftan koliye; boyut ve ağırlık, gereken aracı ve ücreti etkiler.",
   },
   {
-    title: "Ekstralar",
-    text: "Sigortalı taşıma, gece ve hafta sonu gibi durumlar fiyata yansır.",
+    title: "Zamanlama",
+    text: "Gece, hafta sonu ve resmi tatiller gibi zaman dilimleri fiyata yansır.",
   },
 ];
 
@@ -52,7 +52,7 @@ const fiyatFaqs = [
   {
     question: "Kurye ücreti neye göre belirlenir?",
     answer:
-      "Ücret; mesafe, hizmet tipi (standart/aynı gün/acil), gönderinin boyutu ve sigortalı taşıma ya da gece/hafta sonu gibi ekstraların birleşimiyle belirlenir.",
+      "Ücret; mesafe, hizmet tipi (standart/aynı gün/acil), gönderinin boyutu ve gece/hafta sonu gibi zamanlama etkenlerinin birleşimiyle belirlenir.",
   },
   {
     question: "Gizli ek ücret var mı?",
