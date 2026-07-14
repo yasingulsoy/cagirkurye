@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { services } from "@/lib/services";
 import { faqs } from "@/lib/faq";
 import { regions } from "@/lib/regions";
@@ -87,7 +86,7 @@ export default function Home() {
         </div>
 
         <div
-          className={`${container} relative grid items-start gap-12 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:gap-10 lg:pt-10 lg:pb-24`}
+          className={`${container} relative grid items-center gap-12 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pt-10 lg:pb-24`}
         >
           <Reveal>
             {/* Akışkan tipografi: 360px'te ~40px, geniş ekranda 68px'e kadar */}
@@ -149,11 +148,9 @@ export default function Home() {
 
           {/* Canlı takip kartı (görsel) */}
           <Reveal
-            className="relative mx-auto w-full max-w-md lg:mx-0 lg:flex lg:flex-col lg:justify-self-end"
+            className="relative mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
             delay={0.15}
           >
-            {/* Takip kartı grubu */}
-            <div className="relative">
             {/* Arka plaka — hafif dönük, derinlik verir */}
             <div
               aria-hidden
@@ -255,32 +252,6 @@ export default function Home() {
                   hizmet
                 </span>
               </div>
-            </div>
-            </div>
-
-            {/* Moto kurye paneli — sağ alt boşluğu doldurur (yalnız desktop) */}
-            <div className="relative mt-8 hidden flex-1 flex-col overflow-hidden rounded-3xl border border-border bg-[#fef3c7] lg:flex">
-              <div className="flex items-start justify-between gap-3 px-6 pt-6">
-                <div>
-                  <p className="text-xl font-extrabold text-[#7c2d12]">
-                    Moto kurye hazır
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-[#a16207]">
-                    Dakikalar içinde kapında.
-                  </p>
-                </div>
-                <span className="flex-none rounded-full bg-[#7c2d12] px-3 py-1 text-xs font-bold text-[#fde68a]">
-                  Hızlı
-                </span>
-              </div>
-              <Image
-                src="/moto-kurye.png"
-                alt="Moto kurye"
-                width={438}
-                height={384}
-                priority
-                className="mx-auto mt-auto h-auto w-[78%] max-w-[300px] object-contain pt-2"
-              />
             </div>
           </Reveal>
         </div>
