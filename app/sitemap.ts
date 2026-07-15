@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       p.path === "/"
         ? 1
-        : p.path === "/hizmetler" || p.path === "/fiyat-hesaplama"
+        : p.path === "/hizmetler" || p.path === "/bolgeler"
           ? 0.9
           : 0.7,
   }));

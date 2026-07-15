@@ -162,13 +162,6 @@ export default async function RegionPage({
                   <WhatsappIcon className="h-4 w-4" />
                   WhatsApp&apos;tan Yaz
                 </a>
-                <Link
-                  href="/fiyat-hesaplama"
-                  className="inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-muted transition-colors hover:text-foreground"
-                >
-                  Fiyat hesapla
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
               </div>
             </div>
 

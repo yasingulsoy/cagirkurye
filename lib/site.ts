@@ -77,7 +77,6 @@ export const mailHref = `mailto:${site.email}`;
 // Ana menü / gezinme bağlantıları (gerçek sayfa route'ları)
 export const navLinks = [
   { href: "/hizmetler", label: "Hizmetler" },
-  { href: "/fiyat-hesaplama", label: "Fiyat Hesapla" },
   { href: "/nasil-calisir", label: "Nasıl Çalışır" },
   { href: "/hakkimizda", label: "Hakkımızda" },
   { href: "/blog", label: "Blog" },
@@ -97,11 +96,6 @@ export const staticPages = [
     path: "/hizmetler",
     title: "Hizmetler",
     desc: "Tüm kurye hizmetleri: moto kurye, acil kurye, aynı gün teslimat, paket, kurumsal ve e-ticaret.",
-  },
-  {
-    path: "/fiyat-hesaplama",
-    title: "Kurye Fiyat Hesaplama",
-    desc: "Mesafe ve gönderi tipine göre anında tahmini kurye ücreti hesaplayın.",
   },
   {
     path: "/bolgeler",

@@ -137,14 +137,6 @@ export default function Home() {
               </a>
             </div>
 
-            <Link
-              href="/fiyat-hesaplama"
-              className="group mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-muted transition-colors hover:text-foreground"
-            >
-              Önce fiyat hesapla
-              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-
             {/* Güven rozetleri — mobilde 2'li ızgara, geniş ekranda satır */}
             <ul className="mt-9 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
               {[
